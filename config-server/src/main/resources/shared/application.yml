@@ -3,3 +3,4 @@ logging:
     org:
       springframework: INFO
 
+default-unknown-user-quote: giving a lesson
