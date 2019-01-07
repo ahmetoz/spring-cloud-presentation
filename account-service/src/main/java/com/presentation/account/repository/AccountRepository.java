@@ -2,10 +2,14 @@ package com.presentation.account.repository;
 
 import com.github.javafaker.Faker;
 import com.presentation.account.domain.Account;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class AccountRepository {
+
+    @Value("${default-unknown-user-quote}")
+    private String defaultUnknownUserQuote;
 
     public Account findByName(String name) {
        switch (name.toLowerCase()) {
@@ -19,6 +23,6 @@ public class AccountRepository {
                return new Account("Yoda", Faker.instance().yoda().quote());
        }
 
-       return new Account(name, "Lorem ipsum dor amet!");
+       return new Account(name, defaultUnknownUserQuote);
     }
 }
