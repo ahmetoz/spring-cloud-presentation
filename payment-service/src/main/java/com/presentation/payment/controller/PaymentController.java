@@ -20,7 +20,7 @@ public class PaymentController {
     public String createPayment(@PathVariable String id) {
         logger.info(String.format("payment %s created", id));
 
-        String result = restTemplate.getForObject("http://localhost:8083/notify/"+ id, String.class);
+        String result = restTemplate.getForObject("http://notification-service/notify/"+ id, String.class);
         logger.info(result);
 
         return "payment-created";

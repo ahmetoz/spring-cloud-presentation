@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Random;
+
 @Service
 public class PaymentRestClient {
 
@@ -17,6 +19,9 @@ public class PaymentRestClient {
 
     @HystrixCommand(fallbackMethod = "notAvaliable")
     public String createPayment(String id){
-        return restTemplate.getForObject("http://localhost:8082/payment/"+ id, String.class);
+        if (new Random().nextInt() % 2 == 0)
+            throw new RuntimeException("to fallback");
+
+        return restTemplate.getForObject("http://payment-service/payment/"+ id, String.class);
     }
 }
