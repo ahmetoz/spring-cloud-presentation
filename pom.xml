@@ -40,6 +40,7 @@
         <module>payment-service</module>
         <module>notification-service</module>
         <module>discovery-server</module>
+        <module>monitor-server</module>
 
     </modules>
 </project>
