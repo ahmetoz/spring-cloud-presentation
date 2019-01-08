@@ -3,4 +3,10 @@ logging:
     org:
       springframework: INFO
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
 default-unknown-user-quote: giving a lesson
