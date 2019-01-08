@@ -10,3 +10,10 @@ management:
         include: "*"
 
 default-unknown-user-quote: giving a lesson
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
